@@ -1,0 +1,298 @@
+/* src/screens/DashboardScreen.css */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: #f5f5f5;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  margin-left: 40px; /* Для мини-сайдбара */
+  transition: margin-left 0.3s ease;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.sidebar.open + .main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+}
+
+/* СТИЛИ ДЛЯ КОНТЕЙНЕРОВ КОНТЕНТА */
+.supply-table-container {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.supply-table-container > h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.supply-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.back-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #545b62;
+}
+
+.table-controls {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.add-supply-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.add-supply-btn:hover {
+  background: #0056b3;
+}
+
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.sort-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.sort-control label {
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.sort-select {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* ПРИВЕТСТВИЕ */
+.welcome-container {
+  width: 100%;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 400px;
+}
+
+.welcome-container h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* АДМИНСКАЯ ИНФОРМАЦИЯ */
+.admin-info, .inspection-info {
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.admin-welcome-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e7f3ff;
+  border-radius: 6px;
+  border-left: 4px solid #007bff;
+}
+
+.auth-notice {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 20px;
+  color: #856404;
+  width: 100%;
+}
+
+.projects-info {
+  margin: 15px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.warning-text {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* МОДАЛЬНОЕ ОКНО ПРОФИЛЯ */
+.profile-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.profile-modal {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* ЗАГРУЗКА */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+    margin-top: 60px;
+  }
+  
+  .sidebar.open + .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .supply-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sort-control {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sort-select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 10px;
+  }
+  
+  .supply-table-container > h1 {
+    font-size: 24px;
+  }
+  
+  .add-supply-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* Добавьте в DashboardScreen.css */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 40px; /* Ширина закрытого сайдбара */
+  padding: 20px;
+  padding-top: 77px; /* Отступ сверху равный высоте хедера */
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Когда сайдбар открыт */
+.sidebar.open + .main-content {
+  margin-left: 250px; /* Ширина открытого сайдбара */
+  width: calc(100% - 250px);
+}
+
+/* Для фиксированного хедера */
+.App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Выше сайдбара */
+  background-color: white;
+  height: 77px; /* Фиксированная высота */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

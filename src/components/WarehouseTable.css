@@ -1,0 +1,425 @@
+/* src/components/WarehouseTable.css - ИСПРАВЛЕННАЯ ВЕРСИЯ */
+
+.warehouse-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #495057;
+  margin-top: 20px;
+}
+
+.warehouse-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.warehouse-table th,
+.warehouse-table td {
+  border: 2px solid #495057;
+  padding: 12px;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.warehouse-table th {
+  background-color: #D2DCE6;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  position: sticky;
+  top: 0;
+}
+
+/* Стили для строк */
+.warehouse-table tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+.warehouse-table tr:nth-child(odd) td {
+  background-color: #ffffff;
+}
+
+.warehouse-table tr:hover td {
+  background-color: #f5f5f5;
+}
+
+/* Ширины колонок (8 колонок вместо 9) */
+.warehouse-table th:nth-child(1) { width: 60px; }  /* № */
+.warehouse-table th:nth-child(2) { width: 200px; } /* Наименование (Категория) */
+.warehouse-table th:nth-child(3) { width: 200px; } /* Содержимое (Материал) */
+.warehouse-table th:nth-child(4) { width: 100px; } /* Количество */
+.warehouse-table th:nth-child(5) { width: 80px; }  /* Ед. изм. */
+.warehouse-table th:nth-child(6) { width: 120px; } /* Категория */
+.warehouse-table th:nth-child(7) { width: 120px; } /* ID поставки */
+.warehouse-table th:nth-child(8) { width: 120px; } /* Дата поступления */
+
+/* Выравнивание по центру для числовых колонок */
+.warehouse-table td:nth-child(1),    /* № */
+.warehouse-table td:nth-child(4),    /* Количество */
+.warehouse-table td:nth-child(5),    /* Ед. изм. */
+.warehouse-table td:nth-child(6),    /* Категория */
+.warehouse-table td:nth-child(7),    /* ID поставки */
+.warehouse-table td:nth-child(8) {   /* Дата поступления */
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Заголовок таблицы */
+.warehouse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+
+.warehouse-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.warehouse-title h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.5em;
+}
+
+.warehouse-stats {
+  display: flex;
+  gap: 20px;
+  color: #555;
+  font-size: 14px;
+}
+
+.warehouse-stats strong {
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+
+/* Кнопка обновления */
+.refresh-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.3s;
+}
+
+.refresh-btn:hover {
+  background: #2980b9;
+}
+
+.refresh-btn:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Стили для ячеек */
+.item-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.item-content {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.quantity {
+  font-weight: 600;
+  color: #27ae60;
+}
+
+.unit {
+  color: #7f8c8d;
+  font-size: 13px;
+}
+
+/* Категория */
+.category {
+  font-size: 0.9em;
+  color: #495057;
+  max-width: 120px;
+  word-wrap: break-word;
+}
+
+/* Для пустой категории */
+.category:empty::before {
+  content: "—";
+  color: #6c757d;
+  font-style: italic;
+}
+
+.supply-id {
+  font-family: monospace;
+  font-size: 11px;
+  color: #6c757d;
+}
+
+.arrival-date {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Состояние пустой таблицы */
+.empty-table {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 40px !important;
+  background-color: #f8f9fa !important;
+}
+
+/* Информационный блок */
+.warehouse-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.warehouse-info ul {
+  margin: 10px 0 0 20px;
+  color: #555;
+}
+
+.warehouse-info li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Состояние загрузки */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-style: italic;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .warehouse-table {
+    font-size: 12px;
+  }
+  
+  .warehouse-table th,
+  .warehouse-table td {
+    padding: 8px 6px;
+  }
+  
+  .warehouse-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .warehouse-stats {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .category {
+    font-size: 0.8em;
+  }
+}
+
+/* SupplyTable.css, InspectionTable.css, WarehouseTable.css - добавить */
+
+.search-panel {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.search-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.search-input-group {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 40px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.search-input:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-search-btn:hover {
+  color: #dc3545;
+}
+
+.search-column-select {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.search-column-select:focus {
+  outline: none;
+  border-color: #1890ff;
+}
+
+.search-column-select:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.search-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.search-count {
+  background: #e9ecef;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.search-count strong {
+  color: #1890ff;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input-group {
+    min-width: 100%;
+  }
+  
+  .search-column-select {
+    width: 100%;
+  }
+  
+  .search-info {
+    justify-content: center;
+  }
+}
+
+/* Особые стили для склада */
+.warehouse-search .search-input-group {
+  min-width: 300px;
+}
+
+/* Подсветка найденных результатов */
+.highlight {
+  background-color: #fff3cd;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-weight: 600;
+}
+.search-input-group {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #6c757d;
+  font-size: 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 40px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}

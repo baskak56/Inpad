@@ -1,0 +1,184 @@
+/* src/components/Sidebar.css */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 77px; /* Фиксированная позиция под хедером (высота хедера) */
+  width: 40px;
+  height: calc(100vh - 77px); /* Оставшееся пространство */
+  background-color: #D1E8FF;
+  color: #333;
+  padding: 0;
+  transition: all 0.3s ease;
+  z-index: 999; /* Ниже хедера */
+  overflow-x: hidden;
+  border-right: 2px solid #D1E8FF;
+  cursor: pointer;
+}
+
+.sidebar:hover {
+  background-color: #C5E0FF;
+}
+
+.sidebar.open {
+  width: 250px;
+  padding: 20px;
+  cursor: default;
+  background-color: #D1E8FF;
+}
+
+.sidebar.open:hover {
+  background-color: #D1E8FF;
+}
+
+/* Стрелка когда меню закрыто */
+.sidebar:not(.open)::before {
+  content: "▼";
+  position: absolute;
+  top: 15px;
+  right: 8px;
+  transform: rotate(-90deg);
+  font-size: 20px;
+  color: #333;
+  transition: all 0.3s ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sidebar:not(.open):hover::before {
+  color: #1a5fb4;
+  background-color: #B8D6F7;
+  border-radius: 4px;
+}
+
+/* Стрелка когда меню открыто */
+.sidebar.open::before {
+  content: "▼";
+  position: absolute;
+  top: 15px;
+  right: 8px;
+  transform: rotate(0deg);
+  font-size: 20px;
+  color: #333;
+  z-index: 1001;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.sidebar.open::before:hover {
+  color: #1a5fb4;
+  background-color: #B8D6F7;
+  border-radius: 4px;
+}
+
+/* Область для клика по стрелке */
+.sidebar.open::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Скрываем содержимое когда меню свернуто */
+.sidebar:not(.open) > * {
+  display: none;
+}
+
+/* Показываем содержимое только когда меню открыто */
+.sidebar.open ul {
+  display: block;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 8px;
+  cursor: pointer;
+  color: #333;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.sidebar li.menu-item:hover {
+  background-color: #B8D6F7;
+  transform: translateX(5px);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 8px;
+  transition: all 0.2s ease;
+}
+
+.menu-header:hover {
+  background-color: #A8CCFF;
+  border-radius: 4px;
+}
+
+.arrow {
+  transition: transform 0.3s;
+  font-size: 12px;
+  color: #333;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.menu-header:hover .arrow {
+  color: #1a5fb4;
+}
+
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #D1E8FF;
+  border-radius: 4px;
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.submenu li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #C5E0FF;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.submenu li:last-child {
+  border-bottom: none;
+}
+
+.submenu li:hover {
+  background-color: #9EC2FF;
+  transform: translateX(10px);
+}
+
+/* Активное состояние */
+.sidebar li:active,
+.menu-header:active,
+.submenu li:active {
+  background-color: #8BB9FF;
+  transform: scale(0.98);
+}

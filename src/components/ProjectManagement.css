@@ -1,0 +1,1119 @@
+/* src/components/ProjectManagement.css */
+.project-management {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: auto; /* ИЛИ УДАЛИТЬ СВОЙСТВО ПОЛНОСТЬЮ */
+}
+
+.project-form-section,
+.add-user-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.create-project-form,
+.add-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-project-btn {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-project-btn:hover {
+  background: #0056b3;
+}
+
+/* СТИЛИ ДЛЯ ТАБЛИЦЫ ВСЕХ ПОЛЬЗОВАТЕЛЕЙ */
+.all-users-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.all-users-section h3 {
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.all-users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.all-users-table th {
+  background-color: #f5f5f5;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  font-weight: 600;
+}
+
+.all-users-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.all-users-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* СТИЛИ ДЛЯ СПИСКА ПРОЕКТОВ */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.projects-layout.collapsed {
+  grid-template-columns: 0 1fr;
+  gap: 0;
+}
+
+.projects-list {
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.projects-layout.collapsed .projects-list {
+  width: 0;
+  padding-right: 0;
+  border-right: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.project-item {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-item:hover {
+  background-color: #f5f5f5;
+}
+
+.project-item.active {
+  border-color: #007bff;
+  background-color: #e3f2fd;
+}
+
+.project-info h4 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.project-address {
+  color: #666;
+  font-size: 14px;
+}
+
+.project-stats {
+  margin-top: 8px;
+  color: #666;
+  font-size: 12px;
+}
+
+/* СТИЛИ ДЛЯ ДЕТАЛЕЙ ПРОЕКТА */
+.project-details {
+  padding: 0 10px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.project-title-section h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.project-tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  border-bottom-color: #007bff;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.tab-content {
+  min-height: 300px;
+}
+
+/* СТИЛИ ДЛЯ ТАБЛИЦ */
+.users-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.users-table th {
+  background-color: #f5f5f5;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  font-weight: 600;
+}
+
+.users-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* СТИЛИ ДЛЯ РОЛЕЙ И БЭДЖЕЙ */
+.role-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.role-admin { background-color: #ffebee; color: #c62828; }
+.role-manager { background-color: #e8f5e8; color: #2e7d32; }
+.role-inspector { background-color: #e3f2fd; color: #1565c0; }
+.role-viewer { background-color: #f3e5f5; color: #7b1fa2; }
+
+/* СТИЛИ ДЛЯ КНОПОК */
+.remove-user-btn {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.remove-user-btn:hover:not(:disabled) {
+  background-color: #ffcdd2;
+}
+
+.remove-user-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* СТИЛИ ДЛЯ СПИСКА ПРОЕКТОВ ПОЛЬЗОВАТЕЛЯ */
+.user-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.user-project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.project-name {
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.project-role {
+  margin: 0 12px;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #e9ecef;
+  color: #666;
+}
+
+.no-projects {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* СТИЛИ ДЛЯ ПУСТЫХ СООБЩЕНИЙ */
+.empty-message {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 40px 20px;
+}
+
+.no-project-selected {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-style: italic;
+}
+
+/* СТИЛИ ДЛЯ КНОПОК СВОРАЧИВАНИЯ */
+.projects-list-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.projects-layout.collapsed .projects-list-container {
+  width: 0;
+}
+
+.projects-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-right: 10px;
+}
+
+.toggle-sidebar-header-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.toggle-sidebar-header-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.toggle-sidebar-btn {
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.toggle-sidebar-btn:hover {
+  background: #0056b3;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+  .projects-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-layout.collapsed {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-list {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+  
+  .toggle-sidebar-btn {
+    display: none;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    min-width: auto;
+  }
+}
+/* src/components/ProjectManagement.css */
+/* ... существующие стили ... */
+
+/* СТИЛИ ДЛЯ СПИСКА ПРОЕКТОВ */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.projects-layout.collapsed {
+  grid-template-columns: 0 1fr;
+  gap: 0;
+}
+
+.projects-list-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.projects-layout.collapsed .projects-list-container {
+  width: 0;
+  overflow: hidden;
+}
+
+.projects-list {
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+.projects-layout.collapsed .projects-list {
+  width: 0;
+  padding-right: 0;
+  border-right: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* КНОПКИ СВОРАЧИВАНИЯ - ИСПРАВЛЕННЫЕ СТИЛИ */
+.projects-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  position: relative;
+  z-index: 5;
+}
+
+.toggle-sidebar-header-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.toggle-sidebar-header-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.toggle-sidebar-btn {
+  position: absolute;
+  left: calc(100% - 15px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px
+}
+/* src/components/ProjectManagement.css */
+/* ... существующие стили ... */
+
+/* СТИЛИ ДЛЯ СПИСКА ПРОЕКТОВ */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.projects-layout.collapsed {
+  grid-template-columns: 0 1fr;
+  gap: 0;
+}
+
+.projects-list-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.projects-layout.collapsed .projects-list-container {
+  width: 0;
+  overflow: visible; /* Разрешаем видимость для кнопки */
+}
+
+.projects-list {
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+.projects-layout.collapsed .projects-list {
+  width: 0;
+  padding-right: 0;
+  border-right: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* КНОПКИ СВОРАЧИВАНИЯ - ИСПРАВЛЕННЫЕ СТИЛИ */
+.projects-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  position: relative;
+  z-index: 5;
+}
+
+.toggle-sidebar-header-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.toggle-sidebar-header-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* ОСНОВНАЯ КНОПКА СВОРАЧИВАНИЯ/РАЗВОРАЧИВАНИЯ */
+.toggle-sidebar-btn {
+  position: absolute;
+  left: 100%; /* Позиционируем справа от списка проектов */
+  top: 50%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 1000; /* Очень высокий z-index чтобы всегда была поверх */
+  margin-left: 10px; /* Отступ от края */
+}
+
+.toggle-sidebar-btn:hover {
+  background: #0056b3;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ДЛЯ СВЕРНУТОГО СОСТОЯНИЯ - кнопка остается видимой */
+.projects-layout.collapsed .toggle-sidebar-btn {
+  left: 0; /* Перемещаем к левому краю */
+  margin-left: 0;
+  background: #6c757d;
+}
+
+.projects-layout.collapsed .toggle-sidebar-btn:hover {
+  background: #545b62;
+}
+
+/* ОБЛАСТЬ ДЕТАЛЕЙ ПРОЕКТА */
+.project-details-container {
+  position: relative;
+  min-height: 500px;
+  padding-left: 20px; /* Увеличиваем отступ чтобы контент не перекрывался */
+}
+
+.projects-layout.collapsed .project-details-container {
+  padding-left: 40px; /* Больше отступ когда проекты скрыты */
+}
+
+/* ЗАЩИТА ОТ ПЕРЕКРЫТИЯ */
+.project-details {
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+  .projects-layout {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .projects-layout.collapsed {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-list {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-right: 0;
+    padding-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .projects-layout.collapsed .projects-list {
+    display: none;
+  }
+  
+  .toggle-sidebar-btn {
+    display: none; /* На мобильных скрываем эту кнопку */
+  }
+  
+  .toggle-sidebar-header-btn {
+    display: block; /* Используем только кнопку в заголовке */
+  }
+  
+  .project-details-container {
+    padding-left: 0;
+    margin-top: 10px;
+  }
+  
+  .projects-layout.collapsed .project-details-container {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-list-header {
+    padding-right: 5px;
+  }
+  
+  .toggle-sidebar-header-btn {
+    width: 28px;
+    height: 28px;
+    padding: 5px;
+  }
+  
+  .project-details {
+    padding: 0 5px;
+  }
+}
+/* ДОБАВЬТЕ ЭТИ СТИЛИ В КОНЕЦ ФАЙЛА ProjectManagement.css */
+
+/* СКРЫТИЕ ЗАГОЛОВКА "МОИ ПРОЕКТЫ" ПРИ СВОРАЧИВАНИИ */
+.projects-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  position: relative;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+/* Скрываем весь заголовок при свернутом состоянии */
+.projects-layout.collapsed .projects-list-header {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  margin-bottom: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Убедимся, что кнопка toggle-sidebar-btn остается видимой */
+.projects-layout.collapsed .toggle-sidebar-btn {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+}
+
+/* Улучшаем позиционирование кнопки в свернутом состоянии */
+.projects-layout.collapsed .toggle-sidebar-btn {
+  left: 10px; /* Отступ от левого края */
+  top: 50%;
+  background: #6c757d;
+  z-index: 1000;
+}
+
+.projects-layout.collapsed .toggle-sidebar-btn:hover {
+  background: #545b62;
+}
+
+/* Улучшаем отступы для контента когда проекты скрыты */
+.projects-layout.collapsed .project-details-container {
+  padding-left: 50px; /* Больше отступ чтобы кнопка не перекрывала контент */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .projects-layout.collapsed .projects-list-header {
+    display: none; /* Полностью скрываем на мобильных */
+  }
+  
+  .projects-layout.collapsed .project-details-container {
+    padding-left: 20px;
+  }
+  
+  .projects-layout.collapsed .toggle-sidebar-btn {
+    left: 5px;
+    top: 20px;
+  }
+}
+/* ДОБАВЬТЕ В ProjectManagement.css */
+
+/* СТИЛИ ДЛЯ ЗАГОЛОВКА ВКЛАДКИ ПОСТАВОК */
+.supplies-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.supplies-header h4 {
+  margin: 0;
+  color: #333;
+}
+
+.add-supply-to-project-btn {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.add-supply-to-project-btn:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.add-supply-to-project-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+  .supplies-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .add-supply-to-project-btn {
+    align-self: stretch;
+  }
+}
+
+/* src/components/ProjectManagement.css */
+.project-management {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: auto; /* ИЛИ УДАЛИТЬ СВОЙСТВО ПОЛНОСТЬЮ */
+}
+
+/* Исправляем основной контейнер */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 100px); /* Занимает оставшуюся высоту */
+}
+
+/* Формы и секции на всю ширину */
+.project-form-section,
+.add-user-section,
+.all-users-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: #f8f9fa;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Таблицы на всю ширину */
+.all-users-table,
+.users-table {
+  width: 100%;
+  overflow-x: auto; /* Добавляем горизонтальную прокрутку если таблица широкая */
+}
+
+.all-users-table table,
+.users-table table {
+  width: 100%;
+  min-width: 800px; /* Минимальная ширина таблицы */
+  border-collapse: collapse;
+}
+
+/* Список проектов */
+.projects-list-container {
+  position: relative;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.projects-list {
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
+  transition: all 0.3s ease;
+  height: 100%;
+  overflow-y: auto; /* Вертикальная прокрутка если много проектов */
+}
+
+/* Детали проекта на всю оставшуюся ширину */
+.project-details-container {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.project-details {
+  padding: 0 10px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Вкладки */
+.project-tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  overflow-x: auto; /* Горизонтальная прокрутка для вкладок если их много */
+  white-space: nowrap;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Контент вкладок */
+.tab-content {
+  min-height: 300px;
+  width: 100%;
+}
+
+/* Заголовки форм на всю ширину */
+.create-project-form,
+.add-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .projects-layout {
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .projects-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  
+  .projects-list {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-right: 0;
+    padding-bottom: 20px;
+    max-height: 300px;
+  }
+  
+  .project-details-container {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-management {
+    padding: 15px;
+  }
+  
+  .project-form-section,
+  .add-user-section,
+  .all-users-section {
+    padding: 15px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    min-width: 100%;
+  }
+  
+  .all-users-table table,
+  .users-table table {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-management {
+    padding: 10px;
+  }
+  
+  .project-tabs {
+    font-size: 14px;
+  }
+  
+  .tab-button {
+    padding: 8px 12px;
+  }
+}
+
+
+/* Добавьте эти стили в конец файла ProjectManagement.css */
+
+/* СТИЛИ ДЛЯ КНОПОК УДАЛЕНИЯ ПРОЕКТА */
+.project-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.delete-project-btn {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.delete-project-btn:hover:not(:disabled) {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.delete-project-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.project-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.delete-project-small-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.delete-project-small-btn:hover:not(:disabled) {
+  background-color: rgba(220, 53, 69, 0.1);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.delete-project-small-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.project-item:hover .delete-project-small-btn {
+  opacity: 1;
+}
+
+/* ИКОНКИ В КНОПКАХ */
+.delete-project-btn::before,
+.delete-project-small-btn::before {
+  font-size: 14px;
+}
+
+/* ОПОВЕЩЕНИЯ И ПОДТВЕРЖДЕНИЯ */
+.confirmation-dialog {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 10px 0;
+  color: #856404;
+}
+
+.confirmation-dialog strong {
+  color: #856404;
+}
+
+.confirmation-dialog ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.confirmation-dialog li {
+  margin-bottom: 5px;
+}
+
+/* КЛАСС ДЛЯ ОПАСНЫХ ДЕЙСТВИЙ */
+.danger {
+  border: 1px solid #dc3545;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .project-actions {
+    width: 100%;
+  }
+  
+  .delete-project-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .project-header-row {
+    align-items: center;
+  }
+  
+  .delete-project-small-btn {
+    font-size: 14px;
+    padding: 3px 6px;
+  }
+}

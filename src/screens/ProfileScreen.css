@@ -1,0 +1,234 @@
+/* src/screens/ProfileScreen.css */
+.profile-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Выше всех элементов */
+  animation: overlayFadeIn 0.3s ease;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.profile-modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.profile-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e1e5e9;
+  background: #f8f9fa;
+}
+
+.profile-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #6c757d;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  background: #e9ecef;
+  color: #495057;
+  transform: rotate(90deg);
+}
+
+.close-btn:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+.profile-modal-content {
+  padding: 24px;
+  overflow-y: auto;
+  max-height: calc(80vh - 80px); /* Высота минус заголовок */
+}
+
+.profile-info {
+  margin-bottom: 24px;
+}
+
+.profile-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.profile-field:last-child {
+  border-bottom: none;
+}
+
+.profile-field label {
+  font-weight: 600;
+  color: #495057;
+  min-width: 120px;
+  font-size: 14px;
+}
+
+.profile-field span {
+  color: #6c757d;
+  text-align: right;
+  font-size: 14px;
+  word-break: break-word;
+  max-width: 60%;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.profile-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.profile-action-btn:hover {
+  border-color: #007bff;
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+}
+
+.profile-action-btn:active {
+  transform: translateY(0);
+}
+
+.profile-action-btn.logout {
+  border-color: #dc3545;
+  color: #dc3545;
+  margin-top: 8px;
+}
+
+.profile-action-btn.logout:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* Кнопка "Выйти" - стиль как в вашем CSS */
+.profile-action-btn:last-child {
+  border-color: #dc3545;
+  color: #dc3545;
+  margin-top: 8px;
+}
+
+.profile-action-btn:last-child:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .profile-modal {
+    width: 95%;
+    margin: 10px;
+    max-height: 90vh;
+  }
+  
+  .profile-modal-header {
+    padding: 15px 20px;
+  }
+  
+  .profile-modal-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .profile-modal-content {
+    padding: 20px;
+    max-height: calc(90vh - 70px);
+  }
+  
+  .profile-field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .profile-field label {
+    min-width: auto;
+  }
+  
+  .profile-field span {
+    text-align: left;
+    max-width: 100%;
+  }
+  
+  .profile-action-btn {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Анимация закрытия */
+.profile-modal-overlay.closing .profile-modal {
+  animation: modalDisappear 0.2s ease-in forwards;
+}
+
+@keyframes modalDisappear {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+}
